@@ -44,5 +44,11 @@ def get_contact(id):
     contact = Contact.query.get(id)
     return contact_schema.jsonify(contact), 200
 
+@app.route('/contact', methods=['GET'])
+def get_contact_by_name():
+    name = request.json['name']
+    contact = Contact.query.filter(Contact.name.like('%'+ name + '%'))
+    return contact_schema.jsonify(contact), 200
+
 if __name__ == '__main__':
     app.run(debug=True)
