@@ -74,6 +74,23 @@ def add_contact():
 
     return contact_schema.jsonify(new_contact), 201
 
+# Update contact
+@app.route('/contact/<id>', methods=['PUT'])
+def update_contact(id):
+    contact = Contact.query.get(id)
+
+    name = request.json['name']
+    email = request.json['email']
+    phone_number = request.json['phone_number']
+
+    contact.name = name
+    contact.email = email
+    contact.phone_number = phone_number
+
+    db.session.commit()
+
+    return contact_schema.jsonify(contact), 200
+
 # Run Server 
 if __name__ == '__main__':
     app.run(debug=True)
