@@ -15,5 +15,23 @@ db = SQLAlchemy(app)
 
 ma = Marshmallow(app)
 
+class Contact(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100))
+    email = db.Column(db.String(100), unique=True)
+    phone_number = db.Column(db.String(20), unique=True)
+
+    def __init__(self, name, email, phone_number):
+        self.name = name
+        self.email = email
+        self.phone_number = phone_number
+
+class ContactSchema(ma.Schema):
+    class Meta:
+        fields = ('id', 'name', 'email', 'phone_number')
+
+contact_schema = ContactSchema()
+contacts_schema = ContactSchema(many = True)
+
 if __name__ == '__main__':
     app.run(debug=True)
