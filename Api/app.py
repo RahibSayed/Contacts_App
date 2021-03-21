@@ -91,6 +91,14 @@ def update_contact(id):
 
     return contact_schema.jsonify(contact), 200
 
+# Delete contact
+@app.route('/contact/<id>', methods=['DELETE'])
+def delete_contact(id):
+    contact = Contact.query.get(id)
+    db.session.delete(contact)
+    db.session.commit()
+    return '', 204
+
 # Run Server 
 if __name__ == '__main__':
     app.run(debug=True)

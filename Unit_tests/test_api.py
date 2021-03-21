@@ -31,10 +31,14 @@ class TestApi(unittest.TestCase):
         contact = {
             "name": "Bob Change",
             "email": "bob@hotmail.co.uk",
-            "phone_number": "07465109232"
+            "phone_number": "07465109239"
         }
         result = requests.put(BASE_URL + '/contact/1', json=contact)
         self.assertAlmostEqual(result.status_code, 200)
+
+    def test_6_delete_contact(self):
+        result = requests.delete(BASE_URL + '/contact/4')
+        self.assertAlmostEqual(result.status_code, 204)
 
 if __name__ == '__main__':
     unittest.main()
