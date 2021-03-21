@@ -33,5 +33,11 @@ class ContactSchema(ma.Schema):
 contact_schema = ContactSchema()
 contacts_schema = ContactSchema(many = True)
 
+@app.route('/contact', methods=['GET'])
+def get_contacts():
+    all_contacts = Contact.query.all()
+    result = contacts_schema.dump(all_contacts)
+    return jsonify(result), 200
+
 if __name__ == '__main__':
     app.run(debug=True)
