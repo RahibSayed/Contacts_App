@@ -1,0 +1,451 @@
+{
+	"info": {
+		"_postman_id": "6b1dd059-ffbc-47c4-8869-2ed36af008f7",
+		"name": "PythonApi",
+		"description": "This API documentation allows for the user to utilize CRUD functionality for a simple contact system.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Sayed\",\r\n    \"email\": \"sayed@hotamil.co.uk\",\r\n    \"phone_number\": \"01242523546\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/contact",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"contact"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Sayed\",\r\n    \"email\": \"sayed@hotamil.co.uk\",\r\n    \"phone_number\": \"01242523546\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/contact",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"contact"
+							]
+						}
+					},
+					"status": "CREATED",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "103"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/1.0.1 Python/3.9.2"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 21 Mar 2021 22:50:04 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"email\": \"sayed@hotamil.co.uk\",\n    \"id\": 4,\n    \"name\": \"Sayed\",\n    \"phone_number\": \"01242523546\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get All",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/contact",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"contact"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get All",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/contact",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"contact"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "122"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/1.0.1 Python/3.9.2"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 21 Mar 2021 22:39:16 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"email\": \"bob@hotmail.co.uk\",\n        \"id\": 1,\n        \"name\": \"Bob Change\",\n        \"phone_number\": \"07465109232\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Get By ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/contact/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"contact",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get By ID",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/contact/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"contact",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "106"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/1.0.1 Python/3.9.2"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 21 Mar 2021 21:21:50 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"email\": \"bob@hotmail.co.uk\",\n    \"id\": 1,\n    \"name\": \"Bob Change\",\n    \"phone_number\": \"09887665446\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get By Name",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"o\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/contact",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"contact"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get By Name",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"o\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/contact",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"contact"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "122"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/1.0.1 Python/3.9.2"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 21 Mar 2021 21:41:41 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"email\": \"bob@hotmail.co.uk\",\n        \"id\": 1,\n        \"name\": \"Bob Change\",\n        \"phone_number\": \"09887665446\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Update",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Bob Change\",\r\n    \"email\": \"bob@hotmail.co.uk\",\r\n    \"phone_number\": \"09887665446\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/contact/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"contact",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Bob Change\",\r\n    \"email\": \"bob@hotmail.co.uk\",\r\n    \"phone_number\": \"09887665446\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/contact/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"contact",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "106"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/1.0.1 Python/3.9.2"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 21 Mar 2021 22:55:58 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"email\": \"bob@hotmail.co.uk\",\n    \"id\": 1,\n    \"name\": \"Bob Change\",\n    \"phone_number\": \"09887665446\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/contact/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"contact",
+						"3"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/contact/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"contact",
+								"4"
+							]
+						}
+					},
+					"status": "NO CONTENT",
+					"code": 204,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/1.0.1 Python/3.9.2"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 21 Mar 2021 22:56:10 GMT"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		}
+	]
+}
