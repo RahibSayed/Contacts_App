@@ -17,5 +17,15 @@ class TestApi(unittest.TestCase):
         result = requests.get(BASE_URL + '/contact/1',{"name":"b"})
         self.assertAlmostEqual(result.status_code, 200)
     
+    def test_4_add_contact(self):
+        contact = {
+            "name": "Rahib",
+            "email": "rahib@hotamil.co.uk",
+            "phone_number": "07465639232"
+        }
+
+        result = requests.post(BASE_URL + '/contact', json=contact)
+        self.assertAlmostEqual(result.status_code, 201)
+
 if __name__ == '__main__':
     unittest.main()
