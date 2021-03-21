@@ -39,5 +39,10 @@ def get_contacts():
     result = contacts_schema.dump(all_contacts)
     return jsonify(result), 200
 
+@app.route('/contact/<id>', methods=['GET'])
+def get_contact(id):
+    contact = Contact.query.get(id)
+    return contact_schema.jsonify(contact), 200
+
 if __name__ == '__main__':
     app.run(debug=True)
