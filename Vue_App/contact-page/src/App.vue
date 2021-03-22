@@ -4,7 +4,7 @@
     <div v-if="showAddContact">
       <AddContact @add-contact="addContact"/>
     </div>
-    <Contacts @delete-contact="deleteContact" :contacts="contacts" />
+    <Contacts @update= updateContact @delete-contact="deleteContact" :contacts="contacts" />
   </div>
 </template>
 
@@ -64,6 +64,9 @@ export default {
     },
     toggleAddContact(){
       this.showAddContact = !this.showAddContact
+    },
+    updateContact(contact){
+      
     }
   },
   async created(){
