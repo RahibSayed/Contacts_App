@@ -2,7 +2,9 @@
     <div class='contact'>
         <h3>
             {{contact.name}}
-            <i @dblclick="$emit('delete-task', contact.id)" class="fas fa-times"></i>
+            <button class="btn" @dblclick="$emit('delete-contact', contact.id)">
+                <i class="fas fa-times"></i>
+            </button>        
         </h3>
         <p>{{contact.email}}</p>
         <p>{{contact.phone_number}}</p>
@@ -32,9 +34,11 @@ export default {
     justify-content: space-between;
 }
 
+.contact button{
+    background-color: #fff;
+}
+
 .fas {
     color: red;
-    cursor: grab;
-    padding: 3px;
 }
 </style>

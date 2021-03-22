@@ -1,23 +1,29 @@
 <template>
   <div class="container">
-    <Header title="Contacts"/>
-    <Contacts @delete-task="deleteTask" :contacts="contacts" />
+    <Header title="Contacts" @toggle-add-contact="toggleAddContact" :showAddContact="showAddContact"/>
+    <div v-if="showAddContact">
+      <AddContact @add-contact="addContact"/>
+    </div>
+    <Contacts @delete-contact="deleteContact" :contacts="contacts" />
   </div>
 </template>
 
 <script>
 import Header from './components/Header'
 import Contacts from './components/Contacts'
+import AddContact from './components/AddContact'
 
 export default {
   name: 'App',
   components: {
     Header,
-    Contacts
+    Contacts,
+    AddContact
   },
   data(){
     return {
-      contacts: []
+      contacts: [],
+      showAddContact: false
     }
   },
   methods: {
@@ -25,6 +31,39 @@ export default {
       const result = await fetch('/contact')
       const data = await result.json()
       return data
+    },
+    async fetchContact(id){
+      const result = await fetch(`/contact/${id}`)
+      const data = await result.json()
+      return data
+    },
+    async deleteContact(id){
+      if(confirm('Are you sure?')){
+        const result = await fetch(`/contact/${id}`,{method: 'DELETE'})
+        result.status == 204 ? (this.contacts = this.contacts.filter((contact) => contact.id !== id)) : alert('Error deleting contact')
+      }
+    },
+    async addContact(contact){
+      const result = await fetch('/contact', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(contact)
+      })
+
+      const data = await result.json()
+      const code = await result
+
+      console.log(data)
+
+      if(code.status !== 201){
+        alert('Error creating contact')
+        return
+      }
+
+      this.contacts = [...this.contacts, data]
+    },
+    toggleAddContact(){
+      this.showAddContact = !this.showAddContact
     }
   },
   async created(){

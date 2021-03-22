@@ -2,7 +2,7 @@
     <div>   
         <div :key="contact.id" v-for="contact in contacts">
             <Contact 
-            @delete-task="$emit('delete-task', contact.id)" :contact="contact"
+            @delete-contact="$emit('delete-contact', contact.id)" :contact="contact"
             />
         </div>
     </div>
@@ -19,6 +19,6 @@ export default {
     components: {
         Contact
     },
-    emits: ['delete-task']
+    emits: ['delete-contact']
 }
 </script>
