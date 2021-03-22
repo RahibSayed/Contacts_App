@@ -1,6 +1,7 @@
 <template>
   <div class="container">
     <Header title="Contacts" @toggle-add-contact="toggleAddContact" :showAddContact="showAddContact"/>
+    <Search @search-contact="searchContact"/>
     <div v-if="showAddContact">
       <AddContact @add-contact="addContact"/>
     </div>
@@ -12,13 +13,15 @@
 import Header from './components/Header'
 import Contacts from './components/Contacts'
 import AddContact from './components/AddContact'
+import Search from './components/Search'
 
 export default {
   name: 'App',
   components: {
     Header,
     Contacts,
-    AddContact
+    AddContact,
+    Search
   },
   data(){
     return {
@@ -65,8 +68,20 @@ export default {
     toggleAddContact(){
       this.showAddContact = !this.showAddContact
     },
-    updateContact(contact){
-      
+    async searchContact(search){
+      const result = await fetch(`/contact/name?name=${search}`, {
+        method: 'GET'
+      })
+
+      const data = await result.json()
+      const code = await result
+
+      if(code.status !== 200){
+        alert('Error finding contact')
+        return
+      }
+
+      this.contacts = data
     }
   },
   async created(){

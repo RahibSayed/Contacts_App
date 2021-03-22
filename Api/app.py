@@ -54,11 +54,13 @@ def get_contact(id):
     return contact_schema.jsonify(contact), 200
 
 # Get contact by name
-@app.route('/contact', methods=['GET'])
+@app.route('/contact/name', methods=['GET'])
 def get_contact_by_name():
-    name = request.json['name']
-    contact = Contact.query.filter(Contact.name.like('%'+ name + '%'))
-    return contact_schema.jsonify(contact), 200
+    name = request.args.get('name')
+    print(name)
+    contacts = Contact.query.filter(Contact.name.like('%'+ name + '%'))
+    result = contacts_schema.dump(contacts)
+    return jsonify(result), 200
 
 # Create contact
 @app.route('/contact', methods=['POST'])

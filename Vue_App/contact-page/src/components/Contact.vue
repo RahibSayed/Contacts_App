@@ -68,8 +68,12 @@ export default {
     background-color: #fff;
 }
 
-.fas {
+.fa-times {
     color: red;
+}
+
+.fa-pencil-alt{
+    color: rgb(0, 184, 129);
 }
 
 .btns{

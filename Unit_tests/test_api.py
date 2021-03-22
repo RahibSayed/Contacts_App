@@ -14,7 +14,7 @@ class TestApi(unittest.TestCase):
         self.assertAlmostEqual(result.status_code, 200)
 
     def test_3_get_contact_by_name(self):
-        result = requests.get(BASE_URL + '/contact/1',{"name":"b"})
+        result = requests.get(BASE_URL + '/contact/name?name=a')
         self.assertAlmostEqual(result.status_code, 200)
     
     def test_4_add_contact(self):
