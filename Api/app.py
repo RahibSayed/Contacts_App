@@ -57,7 +57,6 @@ def get_contact(id):
 @app.route('/contact/name', methods=['GET'])
 def get_contact_by_name():
     name = request.args.get('name')
-    print(name)
     contacts = Contact.query.filter(Contact.name.like('%'+ name + '%'))
     result = contacts_schema.dump(contacts)
     return jsonify(result), 200
@@ -103,4 +102,4 @@ def delete_contact(id):
 
 # Run Server 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)

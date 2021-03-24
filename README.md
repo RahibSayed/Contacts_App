@@ -17,11 +17,13 @@
  # Run Project
  Download the zip file and extract or use Git to download the project.
  Git command:
+ 
  git clone https://github.com/RahibSayed/Contacts_App.git
 
  Once downloaded and extracted, locate the project directory named ‘Contacts_App-main' and open this directory in Command Prompt 
 
  To install the Api go to the ‘Contacts_App-main/Api’ directory and run these python commands in the following order:
+ 
  py -m pip install pipenv 
 
  py -m pipenv install 
