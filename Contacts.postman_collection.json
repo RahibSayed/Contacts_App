@@ -228,26 +228,27 @@
 			},
 			"request": {
 				"method": "GET",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
+				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"o\"\r\n}"
+					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:5000/contact",
+					"raw": "http://localhost:5000/contact/name?name=e",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "5000",
 					"path": [
-						"contact"
+						"contact",
+						"name"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "e"
+						}
 					]
 				}
 			},
@@ -265,17 +266,24 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"o\"\r\n}"
+							"raw": ""
 						},
 						"url": {
-							"raw": "http://localhost:5000/contact",
+							"raw": "http://localhost:5000/contact/name?name=o",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "5000",
 							"path": [
-								"contact"
+								"contact",
+								"name"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "o"
+								}
 							]
 						}
 					},
