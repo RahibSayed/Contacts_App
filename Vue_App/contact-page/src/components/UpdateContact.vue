@@ -39,13 +39,14 @@ export default {
                 return
             }
 
-            if(!this.phone_number){
-                alert('Phone Number cannot be empty')
+            let isnum = /^\d+$/.test(this.phone_number);
+            if(!this.phone_number || this.phone_number.length == 11 || !isnum){
+                alert('Please add a valid Phone Number')
                 return
             }
 
-            if(!this.email){
-                alert('Email cannot be empty')
+            if(!this.email || !this.email.includes('@')){
+                alert('Please add a valid Email')
                 return
             }
 

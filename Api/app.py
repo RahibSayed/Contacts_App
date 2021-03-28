@@ -4,6 +4,7 @@ from flask_marshmallow import Marshmallow
 import pymysql
 import secrets
 
+
 # Init app
 app = Flask(__name__)
 
@@ -24,7 +25,7 @@ class Contact(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100))
     email = db.Column(db.String(100), unique=True)
-    phone_number = db.Column(db.String(20), unique=True)
+    phone_number = db.Column(db.String(11), unique=True)
 
     def __init__(self, name, email, phone_number):
         self.name = name

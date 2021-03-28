@@ -36,16 +36,18 @@ export default {
                 return
             }
 
-            if(!this.phone_number){
-                alert('Please add a Phone Number')
+
+            let isnum = /^\d+$/.test(this.phone_number);
+            if(!this.phone_number || this.phone_number.length < 1 || !isnum){
+                alert('Please add a valid Phone Number')
                 return
             }
 
-            if(!this.email){
+            if(!this.email || !this.email.includes('@')){
                 alert('Please add a Email')
                 return
             }
-
+            
 
             const newContact = {
                 name: this.name,
